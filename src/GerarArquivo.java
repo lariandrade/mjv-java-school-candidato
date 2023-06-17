@@ -10,7 +10,7 @@ import java.util.Locale;
 
 public class GerarArquivo {
     
-    public void conteudoArquivo(List<Cadastro> cadastro){
+    public void conteudo(List<Cadastro> cadastro){
 
         StringBuilder conteudoBuilder = new StringBuilder();
 
@@ -33,10 +33,10 @@ public class GerarArquivo {
 			conteudoBuilder.append(candidato.isCelularWhats()+";");
 			conteudoBuilder.append(candidato.getProfissao()+";");
 			conteudoBuilder.append(candidato.getEmpresa()+";");
-			conteudoBuilder.append(String.format(Locale.US, "%.2f", candidato.getSalario())+";");
+			conteudoBuilder.append(String.format("%.2f", candidato.getSalario())+";");
 			conteudoBuilder.append(candidato.isEmpregoAtual()+";");
-			conteudoBuilder.append(String.format(Locale.US, "%.2f", candidato.getPretencaoMinima())+";");
-			conteudoBuilder.append(String.format(Locale.US, "%.2f", candidato.getPretencaoMaxima())+";");
+			conteudoBuilder.append(String.format("%.2f", candidato.getPretencaoMinima())+";");
+			conteudoBuilder.append(String.format("%.2f", candidato.getPretencaoMaxima())+";");
 			conteudoBuilder.append(candidato.getHabilidades()+";");
             conteudoBuilder.append("\n");
         }
@@ -47,7 +47,13 @@ public class GerarArquivo {
 
     public void geraCSV(StringBuilder conteudoBuilder){
 
-        Path arquivoDestino = Paths.get("C:\\jobby\\files\\cadastro.csv");
+
+        String caminhoDiretorio = "C:\\jobby\\files\\";
+        String nomeArquivo = "cadastro.csv";
+
+        String destino = verificaCaminho(caminhoDiretorio, nomeArquivo);
+        
+        Path arquivoDestino = Paths.get(destino.toString());
         
         try {
             Files.write(arquivoDestino, conteudoBuilder.toString().getBytes(StandardCharsets.UTF_8), StandardOpenOption.CREATE);
@@ -56,4 +62,39 @@ public class GerarArquivo {
         }
 
     }
+
+    /**
+     * Verifica se os diretórios especificados existem. Se não existirem, cria-os.
+     * 
+     * @param caminho O caminho dos diretórios.
+     * @param nome O nome do arquivo.
+     * @return O caminho completo, incluindo o nome do arquivo.
+     * @throws IOException Se ocorrer um erro ao criar os diretórios.
+     */
+    public String verificaCaminho(String caminho, String nome){
+        
+        Path diretorioPath = Paths.get(caminho);
+        Path arquivoPath = diretorioPath.resolve(nome);
+
+        if (!Files.exists(diretorioPath)) {
+            try {
+                Files.createDirectories(diretorioPath.getParent());
+                Files.createDirectories(diretorioPath);
+              
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if (!Files.exists(arquivoPath)) {
+            try {
+                Files.createFile(arquivoPath);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return arquivoPath.toString();
+    }
+
 }
