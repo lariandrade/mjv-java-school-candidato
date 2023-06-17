@@ -1,4 +1,5 @@
 <h1 align="center">Jobby</h1>
+Plataforma destinada ao armazenamento de dados pessoais e profissionais para em seguida proporcionar uma listagem de profissionais, suas experiências e habilidades destinadas para auxilar no processo de recrutamento e seleção de uma empresa de tecnologia.
 
 # Escopo Inicial
 ![image](https://github.com/lariandrade/mjv-java-school-jobby/assets/44838761/0267c53d-c472-4c55-9622-08e506b002ab)
