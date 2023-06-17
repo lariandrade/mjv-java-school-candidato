@@ -29,3 +29,7 @@ Em seguida, percorri a lista do tipo "Cadastro" utilizando um laço foreach e fu
 Para a geração do arquivo CSV, utilizei a biblioteca java.nio.
 
 Nessa etapa, tomei o cuidado de verificar se os diretórios `jobby` e `files`, bem como o arquivo `cadastro.csv`, existem. Caso não existam, o código cria automaticamente esses diretórios e arquivos antes de realizar a escrita dos dados. Isso garante que o processo de geração do arquivo CSV ocorra de forma correta, evitando erros relacionados à falta de permissões ou à inexistência dos diretórios/arquivos necessários.
+
+Resultado:
+![image](https://github.com/lariandrade/mjv-java-school-jobby/assets/44838761/a8d84368-2bb1-4b2c-8c8f-ba1f40fae801)
+
