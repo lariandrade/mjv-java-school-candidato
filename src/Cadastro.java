@@ -33,8 +33,8 @@ public class Cadastro {
     public String getCPF() {
         return CPF;
     }
-    public void setCPF(String cPF) {
-        CPF = cPF;
+    public void setCPF(String CPF) {
+        this.CPF = CPF;
     }
 
     public LocalDate getDataNascimento() {
