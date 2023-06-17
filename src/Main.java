@@ -7,7 +7,7 @@ public class Main {
 
         Cadastro c1 = new Cadastro();
         Cadastro c2 = new Cadastro();
-       
+
         c1.setNome("Larissa");
         c1.setCPF("111.111.111-11");
         c1.setDataNascimento(LocalDate.of(1999, 6, 1));
@@ -29,7 +29,7 @@ public class Main {
         c1.setPretencaoMinima(1900.00);
         c1.setPretencaoMaxima(2300.00);
         c1.setHabilidades("Java");
-        
+
         c2.setNome("Joao");
         c2.setCPF("111.111.111-11");
         c2.setDataNascimento(LocalDate.of(1997, 2, 1));
@@ -58,6 +58,6 @@ public class Main {
 
         GerarArquivo gerarArquivo = new GerarArquivo();
         gerarArquivo.conteudo(informacaoCandidato);
-        
+
     }
 }
